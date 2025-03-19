@@ -31,7 +31,7 @@ char* new_vm_label( void ){
 		// No need to call new_label[ MAX_LABEL_DIGITS + 1] = '\0';
 	}else{
 		Rprintf("Compiler exhausted counts for label creation. \n");
-		exit(1);
+		// exit(1);
 	}
 	return new_label;
 }

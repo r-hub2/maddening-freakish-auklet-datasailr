@@ -297,7 +297,7 @@ WORD {CHAR}{CHNUMPE}*
 void lexerror(parser_state* p, yyscan_t scanner, char c){
 	fprintf(stderr, "%s:%d:lexical error", p->fname, yyget_lineno(scanner));
 	fprintf(stderr, "('%c').\n", c);
-	exit(1);
+	// exit(1);
 }
 
 void update_loc(YYLTYPE *loc, char *txt){

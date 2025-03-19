@@ -208,7 +208,7 @@ cpp_string_repeat(cpp_object* obj, int rep)
 	std::stringstream ss;
 	if (rep <= 0 ){
 		// std::cout  << "ERROR: rep should be greater than 0. \n";
-		exit(0);
+		// exit(0);
 	}
 		
 	for( ; rep > 0; rep-- ){
