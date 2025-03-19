@@ -24,7 +24,7 @@ new_string_with_same_capacity_as( std::string* ori_str )
 //	std::cout << (*ori_str) << "(" << ori_str->length() << ")" << std::endl;
 
 	if (ori_str->empty()){
-		Rcpp::Rcout << "LENGTH is zero" << std::endl;
+		// std::cout  << "LENGTH is zero" << std::endl;
 		return new_str;
 	}
 
@@ -139,8 +139,8 @@ cpp_string_new_unescaped_string_utf8( std::string* ori_str )
 		try{
 			utf8::append(curr_cp, std::back_inserter( *new_str ));
 		}catch(const utf8::invalid_code_point& e){
-			Rcpp::Rcout << "invalid code point" << curr_cp << std::endl; 
-			Rcpp::Rcout << "CODE_POINT_MAX" << utf8::internal::CODE_POINT_MAX << std::endl; 
+			// std::cout  << "invalid code point" << curr_cp << std::endl; 
+			// std::cout  << "CODE_POINT_MAX" << utf8::internal::CODE_POINT_MAX << std::endl; 
 			break;
 		}
 	}
