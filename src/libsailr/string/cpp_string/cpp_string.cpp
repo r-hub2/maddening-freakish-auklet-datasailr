@@ -154,7 +154,7 @@ cpp_string_read (cpp_object* obj )
 //		printf("%s\n", str->c_str());
 		return str->c_str();
 	}else{ 
-		std::cout << "WARNING: String is NULL?\n" << std::endl;
+		Rcpp::Rcout << "WARNING: String is NULL?\n" << std::endl;
 		return "";
 	}
 }
@@ -207,7 +207,7 @@ cpp_string_repeat(cpp_object* obj, int rep)
 
 	std::stringstream ss;
 	if (rep <= 0 ){
-		std::cout << "ERROR: rep should be greater than 0. \n";
+		Rcpp::Rcout << "ERROR: rep should be greater than 0. \n";
 		exit(0);
 	}
 		

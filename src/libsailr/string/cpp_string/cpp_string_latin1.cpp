@@ -8,10 +8,10 @@ std::string*
 cpp_string_new_unescaped_string_latin1( std::string* ori_str )
 {
 	std::string* new_str = new std::string();
-	std::cout << (*ori_str) << "(" << ori_str->length() << ")" << std::endl;
+	Rcpp::Rcout << (*ori_str) << "(" << ori_str->length() << ")" << std::endl;
 
 	if (ori_str->empty()){
-		std::cout << "LENGTH is zero" << std::endl;
+		Rcpp::Rcout << "LENGTH is zero" << std::endl;
 		return new_str;
 	}
 
