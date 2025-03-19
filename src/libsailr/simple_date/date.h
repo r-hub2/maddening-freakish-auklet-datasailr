@@ -2054,12 +2054,21 @@ weekday_indexed::ok() const NOEXCEPT
     return weekday().ok() && 1 <= index_ && index_ <= 5;
 }
 
+#ifdef __GNUC__
+#  pragma GCC diagnostic push
+#  pragma GCC diagnostic ignored "-Wconversion"
+#endif  // __GNUC__
+
 CONSTCD11
 inline
 weekday_indexed::weekday_indexed(const date::weekday& wd, unsigned index) NOEXCEPT
     : wd_(static_cast<decltype(wd_)>(static_cast<unsigned>(wd.wd_)))
     , index_(static_cast<decltype(index_)>(index))
     {}
+
+#ifdef __GNUC__
+#  pragma GCC diagnostic pop
+#endif  // __GNUC__
 
 namespace detail
 {
@@ -6520,7 +6529,7 @@ read(std::basic_istream<CharT, Traits>& is, int a0, Args&& ...args)
         } while (u > 0);
 #if defined(__GNUC__) && __GNUC__ >= 11
 #pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wstringop-overflow"
+// #pragma GCC diagnostic ignored "-Wstringop-overflow"
 #endif
         std::reverse(buf, e);
 #if defined(__GNUC__) && __GNUC__ >= 11
@@ -7568,7 +7577,7 @@ from_stream(std::basic_istream<CharT, Traits>& is, const CharT* fmt,
                             }
                         }
                     }
-                    if (neg)
+                    if (neg && !is.fail())
                         toff = -toff;
                     checked_set(temp_offset, toff, not_a_offset, is);
                     command = nullptr;
